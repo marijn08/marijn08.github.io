@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Privacy Policy – Macro Meter</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+    :root {
+      --bg: #0D0D0D;
+      --card: #1A1A1A;
+      --input: #252525;
+      --text: #EAEAEA;
+      --sub: #999;
+      --border: #2A2A2A;
+      --kcal: #FFB300;
+      --protein: #29B6F6;
+      --fat: #FF7043;
+      --carbs: #AB47BC;
+      --save: #4CAF50;
+      --accent: #FFB300;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.7;
+      min-height: 100vh;
+    }
+
+    /* ── GLOW BACKGROUND ── */
+    .bg-glow {
+      position: fixed; inset: 0; z-index: 0; pointer-events: none;
+      background:
+        radial-gradient(ellipse 700px 500px at 20% 10%, rgba(255,179,0,.06), transparent),
+        radial-gradient(ellipse 500px 400px at 80% 30%, rgba(41,182,246,.04), transparent),
+        radial-gradient(ellipse 600px 400px at 50% 90%, rgba(171,71,188,.04), transparent);
+    }
+
+    /* ── NAV ── */
+    nav {
+      position: sticky; top: 0; z-index: 100;
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 1rem 2rem;
+      background: rgba(13,13,13,.8);
+      backdrop-filter: blur(16px);
+      border-bottom: 1px solid var(--border);
+    }
+    .logo {
+      font-weight: 800; font-size: 1.2rem;
+      background: linear-gradient(135deg, var(--kcal), var(--protein));
+      -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+    }
+    nav a {
+      color: var(--sub); text-decoration: none; font-size: .88rem;
+      font-weight: 500; transition: color .2s;
+    }
+    nav a:hover { color: var(--text); }
+
+    /* ── HERO ── */
+    .hero {
+      position: relative; z-index: 1;
+      text-align: center;
+      padding: 5rem 2rem 3rem;
+    }
+    .hero-icon {
+      width: 72px; height: 72px; border-radius: 20px;
+      display: inline-flex; align-items: center; justify-content: center;
+      font-size: 2rem;
+      background: linear-gradient(135deg, rgba(255,179,0,.15), rgba(41,182,246,.1));
+      border: 1px solid var(--border);
+      margin-bottom: 1.5rem;
+    }
+    .hero h1 {
+      font-size: clamp(2rem, 5vw, 3rem); font-weight: 800;
+      line-height: 1.15; margin-bottom: .75rem;
+    }
+    .hero h1 .grad {
+      background: linear-gradient(135deg, var(--kcal), var(--protein));
+      -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+    }
+    .hero p {
+      color: var(--sub); font-size: 1.05rem;
+      max-width: 520px; margin: 0 auto;
+    }
+    .hero .updated {
+      display: inline-block; margin-top: 1.25rem;
+      padding: .35rem 1rem; border-radius: 100px;
+      background: var(--card); border: 1px solid var(--border);
+      font-size: .8rem; color: var(--sub); font-weight: 500;
+    }
+
+    /* ── CONTENT ── */
+    .content {
+      position: relative; z-index: 1;
+      max-width: 760px; margin: 0 auto;
+      padding: 2rem 2rem 5rem;
+    }
+
+    /* ── POLICY CARD ── */
+    .policy-card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 20px;
+      padding: 2.5rem;
+      margin-bottom: 1.25rem;
+      transition: border-color .3s;
+    }
+    .policy-card:hover { border-color: rgba(255,179,0,.3); }
+    .policy-card .card-header {
+      display: flex; align-items: center; gap: .75rem;
+      margin-bottom: 1rem;
+    }
+    .card-icon {
+      width: 42px; height: 42px; border-radius: 12px;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 1.2rem; flex-shrink: 0;
+    }
+    .policy-card h2 {
+      font-size: 1.2rem; font-weight: 700;
+    }
+    .policy-card p {
+      color: var(--sub); font-size: .95rem; line-height: 1.75;
+    }
+    .policy-card strong { color: var(--text); font-weight: 600; }
+
+    /* ── HIGHLIGHT BOX ── */
+    .highlight {
+      background: linear-gradient(135deg, rgba(76,175,80,.08), rgba(41,182,246,.06));
+      border: 1px solid rgba(76,175,80,.2);
+      border-radius: 14px;
+      padding: 1.25rem 1.5rem;
+      margin-top: 1rem;
+      display: flex; align-items: flex-start; gap: .75rem;
+    }
+    .highlight .hl-icon { font-size: 1.2rem; flex-shrink: 0; margin-top: 2px; }
+    .highlight p { color: var(--text); font-size: .9rem; font-weight: 500; margin: 0; }
+
+    /* ── SUMMARY STRIP ── */
+    .summary-strip {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      gap: 1rem;
+      margin-bottom: 1.25rem;
+    }
+    .summary-item {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 1.5rem;
+      text-align: center;
+      transition: border-color .3s;
+    }
+    .summary-item:hover { border-color: rgba(255,179,0,.3); }
+    .summary-item .s-icon { font-size: 1.6rem; margin-bottom: .5rem; }
+    .summary-item h3 { font-size: .95rem; font-weight: 700; margin-bottom: .25rem; }
+    .summary-item p { color: var(--sub); font-size: .82rem; margin: 0; }
+
+    /* ── FOOTER ── */
+    footer {
+      position: relative; z-index: 1;
+      text-align: center; padding: 2rem;
+      border-top: 1px solid var(--border);
+      color: var(--sub); font-size: .82rem;
+    }
+    footer a { color: var(--sub); text-decoration: none; transition: color .2s; }
+    footer a:hover { color: var(--text); }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 600px) {
+      .policy-card { padding: 1.5rem; border-radius: 14px; }
+      .summary-strip { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+<div class="bg-glow"></div>
+
+<!-- NAV -->
+<nav>
+  <div class="logo">Macro Meter</div>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-icon">🔒</div>
+  <h1>Privacy <span class="grad">Policy</span></h1>
+  <p>Your data stays on your device. We don't collect, store, or share any personal information — ever.</p>
+  <span class="updated">Last updated: March 24, 2026</span>
+</section>
+
+<!-- TL;DR SUMMARY -->
+<div class="content">
+  <div class="summary-strip">
+    <div class="summary-item">
+      <div class="s-icon">📵</div>
+      <h3>No Data Collection</h3>
+      <p>Zero personal data leaves your device</p>
+    </div>
+    <div class="summary-item">
+      <div class="s-icon">🚫</div>
+      <h3>No Tracking</h3>
+      <p>No hidden trackers or unauthorized data sharing</p>
+    </div>
+    <div class="summary-item">
+      <div class="s-icon">📱</div>
+      <h3>Local Storage Only</h3>
+      <p>Everything saved on-device via AsyncStorage</p>
+    </div>
+  </div>
+
+  <!-- SECTION 1 -->
+  <div class="policy-card">
+    <div class="card-header">
+      <div class="card-icon" style="background:rgba(255,179,0,.12); color:var(--kcal);">📊</div>
+      <h2>1. Information We Collect</h2>
+    </div>
+    <p><strong>We do not collect, store, or transmit any personal data.</strong></p>
+    <p>All data you enter into Macro Meter — including meals, food items, nutritional targets, and preferences — is stored locally on your device only using AsyncStorage. No data is sent to any server, cloud service, or third party.</p>
+    <div class="highlight">
+      <span class="hl-icon">✅</span>
+      <p>Your nutrition data never leaves your phone. We have zero access to it.</p>
+    </div>
+  </div>
+
+  <!-- SECTION 2 -->
+  <div class="policy-card">
+    <div class="card-header">
+      <div class="card-icon" style="background:rgba(41,182,246,.12); color:var(--protein);">📷</div>
+      <h2>2. Camera &amp; Barcode Scanning</h2>
+    </div>
+    <p>The App uses your device camera solely to scan food barcodes. Camera access is requested only when you choose to use the barcode scanner.</p>
+    <p>Images and scan data are processed entirely on-device and are <strong>never uploaded, stored remotely, or shared</strong> with anyone.</p>
+  </div>
+
+  <!-- SECTION 3 -->
+  <div class="policy-card">
+    <div class="card-header">
+      <div class="card-icon" style="background:rgba(171,71,188,.12); color:var(--carbs);">🔗</div>
+      <h2>3. Third-Party Services &amp; Advertising</h2>
+    </div>
+    <p>Macro Meter may display advertisements provided by third-party ad networks. These services may collect non-personal, anonymized data such as <strong>device type, general location (country/region), and ad interaction data</strong> to serve relevant ads. This data is handled according to each provider's own privacy policy.</p>
+    <p>We do <strong>not</strong> sell your personal information. No nutrition data, meal logs, or health-related information you enter in the App is ever shared with advertisers or any third party.</p>
+  </div>
+
+  <!-- SECTION 4 -->
+  <div class="policy-card">
+    <div class="card-header">
+      <div class="card-icon" style="background:rgba(255,112,67,.12); color:var(--fat);">💾</div>
+      <h2>4. Data Storage &amp; Security</h2>
+    </div>
+    <p>All your data resides exclusively on your device. If you uninstall the App, all locally stored data is <strong>permanently deleted</strong>.</p>
+    <p>We have no ability to access, recover, or view your data at any time.</p>
+  </div>
+
+  <!-- SECTION 5 -->
+  <div class="policy-card">
+    <div class="card-header">
+      <div class="card-icon" style="background:rgba(76,175,80,.12); color:var(--save);">👶</div>
+      <h2>5. Children's Privacy</h2>
+    </div>
+    <p>The App does not knowingly collect any information from anyone, including children under the age of 13. Since no data is collected whatsoever, no special provisions are required.</p>
+  </div>
+
+  <!-- SECTION 6 -->
+  <div class="policy-card">
+    <div class="card-header">
+      <div class="card-icon" style="background:rgba(255,179,0,.12); color:var(--kcal);">📝</div>
+      <h2>6. Changes to This Policy</h2>
+    </div>
+    <p>We may update this Privacy Policy from time to time. Any changes will be posted on this page with an updated revision date. Continued use of the App after changes constitutes acceptance of the updated policy.</p>
+  </div>
+
+  <!-- SECTION 7 -->
+  <div class="policy-card">
+    <div class="card-header">
+      <div class="card-icon" style="background:rgba(41,182,246,.12); color:var(--protein);">✉️</div>
+      <h2>7. Contact Us</h2>
+    </div>
+    <p>If you have any questions about this Privacy Policy, you can reach us at <a href="mailto:marijn0509@gmail.com" style="color:var(--protein); text-decoration:underline;">marijn0509@gmail.com</a>.</p>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  &copy; 2026 Macro Meter
+</footer>
+
+</body>
+</html>
